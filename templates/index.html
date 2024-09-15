@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<textarea id="editor" oninput="updatePreview()"></textarea>
+<div id="preview"></div>
+<div id="evalute" class="card">
+  <div class="card-body">
+    <p>Evalute</p>
+    <div class="btn-group" role="group" aria-label="pyodide-sympy exprs" id="funcs">
+      <button type="button" class="btn btn-primary" disabled onclick="simplify()">simplify</button>
+      <button type="button" class="btn btn-primary" disabled onclick="solve(document.getElementById('solve-arg').value)">solve<input value="x" id="solve-arg" minlength="1" maxlength="1" style="width: 1em;"></button>
+      <button type="button" class="btn btn-primary" disabled onclick="expand()">expand</button>
+      <button type="button" class="btn btn-primary" disabled onclick="factor()">factor</button>
+      <button type="button" class="btn btn-primary" disabled onclick="apart()">apart</button>
+      <button type="button" class="btn btn-primary" disabled onclick="trigsimp()">trigsimp</button>
+    </div>
+    <p style="margin-top: 1em;">Result</p>
+    <div id="result-preview"></div>
+    <p>Log</p>
+    <textarea id="log-preview" disabled>[INFO] Initializing...</textarea>
+    <button class="btn btn-danger" onclick="clearLog()">Clear All Log</button>
+  </div>
+</div>
+<br>
+<div id="share" class="card">
+  <div class="card-body">
+    <p>Share</p>
+    <button class="btn btn-primary" onclick="copyInput()">Copy input</button>
+    <button class="btn btn-primary" onclick="copyLink()">Copy URL</button>
+    <button class="btn btn-primary" onclick="download()">Save as image(.svg)</button>
+  </div>
+</div>
+<br>
+<div id="docs" class="card">
+  <div class="card-body">
+    <p>Docs</p>
+    <p>simplify: 式の単純化</p>
+    <p>solve: 方程式の解</p>
+    <p>expand: 式の展開</p>
+    <p>factor: 式の因数分解</p>
+    <p>apart: 式の部分分数分解</p>
+    <p>trigsimp: 三角関数の単純化</p>
+  </div>
+</div>
+
+<script defer src="/static/main.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js"></script>
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?version=4.8.0&features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ code }} {{ message }}{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-top: 100px;">
+  <h1>
+    <i class="bi bi-chevron-compact-left" style="color: darkgray"></i>
+    {{ code }}
+    <i class="bi bi-chevron-compact-right" style="color: darkgray"></i>
+    {{ message }}
+  </h1>
+  <div class="animate__animated animate__fadeInUp">
+    <code>{{ description }}</code>
+  </div>
+</div>
+{% endblock %}
