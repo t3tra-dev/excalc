@@ -1,6 +1,6 @@
 # excalc
 
-view on [excalc.t3tra.net](https://excalc.t3tra.net/)
+view on [t3tra.dev/excalc](https://t3tra.dev/excalc)
 
 ![image](/assets/image.png)
 
